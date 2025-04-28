@@ -10,6 +10,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
 import { Carousel, CarouselContent, CarouselItem, CarouselPrevious, CarouselNext } from "@/components/ui/carousel";
+import ProjectShowcaseGenerator from "@/components/ProjectShowcaseGenerator";
 
 const Index = () => {
   // Sample course data
@@ -167,6 +168,11 @@ const Index = () => {
       <main className="flex-grow">
         {/* Hero Section */}
         <HeroSection imageUrl="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&q=80&w=1200" />
+
+        {/* Project Showcase Generator */}
+        <section className="section bg-gradient-to-b from-white to-gray-50">
+          <ProjectShowcaseGenerator />
+        </section>
 
         {/* Stats Section */}
         <section className="py-12 bg-gray-50">
