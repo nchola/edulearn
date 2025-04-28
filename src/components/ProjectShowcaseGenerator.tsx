@@ -1,23 +1,16 @@
 
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
 import { toast } from "sonner";
 import { RunwareService } from "@/services/runwareService";
 
 export default function ProjectShowcaseGenerator() {
-  const [apiKey, setApiKey] = useState("");
   const [loading, setLoading] = useState(false);
   const [generatedImage, setGeneratedImage] = useState<string | null>(null);
+  const runwareService = new RunwareService("JfZlsigukD65fkU1danFYH0rCRCJX1FW");
 
   const generateShowcaseImage = async () => {
-    if (!apiKey) {
-      toast.error("Please enter your Runware API key");
-      return;
-    }
-
     setLoading(true);
-    const runwareService = new RunwareService(apiKey);
 
     try {
       const promptText = `
@@ -37,6 +30,7 @@ export default function ProjectShowcaseGenerator() {
         CFGScale: 7,
         numberResults: 1,
         outputFormat: "WEBP",
+        steps: 4
       });
 
       setGeneratedImage(result.imageURL);
@@ -54,34 +48,9 @@ export default function ProjectShowcaseGenerator() {
       <h2 className="text-2xl font-bold mb-4">Generate Project Showcase Image</h2>
       
       <div className="space-y-4">
-        <div>
-          <label htmlFor="apiKey" className="block text-sm font-medium text-gray-700 mb-1">
-            Runware API Key
-          </label>
-          <Input
-            id="apiKey"
-            type="password"
-            placeholder="Enter your Runware API key"
-            value={apiKey}
-            onChange={(e) => setApiKey(e.target.value)}
-            className="w-full"
-          />
-          <p className="mt-1 text-sm text-gray-500">
-            Get your API key from{" "}
-            <a 
-              href="https://runware.ai" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="text-primary-600 hover:underline"
-            >
-              Runware.ai
-            </a>
-          </p>
-        </div>
-
         <Button 
           onClick={generateShowcaseImage} 
-          disabled={loading || !apiKey}
+          disabled={loading}
           className="w-full"
         >
           {loading ? "Generating..." : "Generate Showcase Image"}
