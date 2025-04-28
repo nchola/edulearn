@@ -8,6 +8,7 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 import { Star, Clock, BookOpen, Award, Play, CheckCircle, Calendar, MessageSquare, Download, Video, FileText, Monitor, Users } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import ForumDiscussion from "@/components/ForumDiscussion";
 
 interface Review {
   id: number;
@@ -372,6 +373,7 @@ The course is constantly updated with the latest industry trends and best practi
                 <TabsList className="mb-6 w-full max-w-md">
                   <TabsTrigger value="overview">Overview</TabsTrigger>
                   <TabsTrigger value="curriculum">Curriculum</TabsTrigger>
+                  <TabsTrigger value="forum">Forum</TabsTrigger>
                   <TabsTrigger value="instructor">Instructor</TabsTrigger>
                   <TabsTrigger value="reviews">Reviews</TabsTrigger>
                 </TabsList>
@@ -486,6 +488,11 @@ The course is constantly updated with the latest industry trends and best practi
                       </AccordionItem>
                     ))}
                   </Accordion>
+                </TabsContent>
+                
+                {/* Forum Tab */}
+                <TabsContent value="forum">
+                  <ForumDiscussion />
                 </TabsContent>
                 
                 {/* Instructor Tab */}
