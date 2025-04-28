@@ -1,13 +1,15 @@
-
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, BookOpen, Users, Clock, Award, BookCheck, Monitor, MessageSquare, GraduationCap } from "lucide-react";
+import { ArrowRight, BookOpen, Users, Clock, Award, BookCheck, Monitor, MessageSquare, GraduationCap, Star, Quote } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import HeroSection from "@/components/HeroSection";
 import CourseCard from "@/components/CourseCard";
 import FeatureCard from "@/components/FeatureCard";
-import TestimonialCard from "@/components/TestimonialCard";
+import { Card, CardContent } from "@/components/ui/card";
+import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
+import { Badge } from "@/components/ui/badge";
+import { Carousel, CarouselContent, CarouselItem, CarouselPrevious, CarouselNext } from "@/components/ui/carousel";
 
 const Index = () => {
   // Sample course data
@@ -131,6 +133,7 @@ const Index = () => {
       avatar: "https://randomuser.me/api/portraits/men/32.jpg",
       content: "EduLearn completely transformed my career. The programming courses were comprehensive and practical, and the instructors were incredibly knowledgeable and supportive.",
       rating: 5,
+      company: "Tech Solutions Inc.",
     },
     {
       name: "Emily Chen",
@@ -138,6 +141,7 @@ const Index = () => {
       avatar: "https://randomuser.me/api/portraits/women/44.jpg",
       content: "I've tried many online learning platforms, but EduLearn stands out with its interactive approach and quality content. The digital marketing course helped me land my dream job!",
       rating: 5,
+      company: "Digital Marketing Pro",
     },
     {
       name: "Marcus Johnson",
@@ -145,6 +149,7 @@ const Index = () => {
       avatar: "https://randomuser.me/api/portraits/men/22.jpg",
       content: "The UI/UX design course was exactly what I needed to upskill. The projects were challenging and the feedback from instructors was invaluable for my professional growth.",
       rating: 4,
+      company: "Creative Design Studio",
     },
   ];
 
@@ -252,7 +257,7 @@ const Index = () => {
         </section>
 
         {/* Testimonials Section */}
-        <section className="section">
+        <section className="section bg-gradient-to-b from-gray-50 to-white">
           <div className="container mx-auto">
             <div className="text-center mb-12">
               <h2 className="text-3xl font-bold mb-4">What Our Students Say</h2>
@@ -261,10 +266,68 @@ const Index = () => {
               </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {testimonials.map((testimonial, index) => (
-                <TestimonialCard key={index} {...testimonial} />
-              ))}
+            <div className="max-w-5xl mx-auto px-8">
+              <Carousel
+                opts={{
+                  align: "start",
+                  loop: true,
+                }}
+                className="w-full"
+              >
+                <CarouselContent>
+                  {testimonials.map((testimonial, index) => (
+                    <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/2">
+                      <div className="p-1">
+                        <Card className="bg-white rounded-xl overflow-hidden transition-all duration-300 hover:shadow-lg border-0 shadow">
+                          <CardContent className="p-6">
+                            <div className="mb-4 flex items-center justify-between">
+                              <div className="flex items-center space-x-4">
+                                <div className="relative">
+                                  <Avatar className="h-12 w-12">
+                                    <AvatarImage src={testimonial.avatar} alt={testimonial.name} />
+                                    <AvatarFallback>{testimonial.name.charAt(0)}</AvatarFallback>
+                                  </Avatar>
+                                  <span className="absolute -bottom-1 -right-1 bg-green-500 rounded-full p-1">
+                                    <Badge className="h-2 w-2 bg-white rounded-full" />
+                                  </span>
+                                </div>
+                                <div>
+                                  <p className="font-semibold text-gray-900">{testimonial.name}</p>
+                                  <p className="text-sm text-gray-500">{testimonial.role}</p>
+                                  <p className="text-xs text-gray-400">{testimonial.company}</p>
+                                </div>
+                              </div>
+                              <div className="flex">
+                                {[...Array(5)].map((_, i) => (
+                                  <Star
+                                    key={i}
+                                    className={`h-4 w-4 ${
+                                      i < testimonial.rating 
+                                        ? "text-yellow-400 fill-current" 
+                                        : "text-gray-300"
+                                    }`}
+                                    strokeWidth={0}
+                                  />
+                                ))}
+                              </div>
+                            </div>
+                            <div className="relative">
+                              <Quote className="h-8 w-8 text-primary-100 absolute -top-2 -left-2 opacity-25" />
+                              <p className="text-gray-700 relative z-10 italic pl-6">
+                                "{testimonial.content}"
+                              </p>
+                            </div>
+                          </CardContent>
+                        </Card>
+                      </div>
+                    </CarouselItem>
+                  ))}
+                </CarouselContent>
+                <div className="hidden md:flex">
+                  <CarouselPrevious className="absolute -left-12" />
+                  <CarouselNext className="absolute -right-12" />
+                </div>
+              </Carousel>
             </div>
           </div>
         </section>
