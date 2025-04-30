@@ -1,4 +1,3 @@
-
 import { toast } from "sonner";
 
 const API_ENDPOINT = "wss://ws-api.runware.ai/v1";
@@ -129,15 +128,15 @@ export class RunwareService {
       const message = [{
         taskType: "imageInference",
         taskUUID,
-        model: params.model || "runware:100@1",
-        width: 1024,
-        height: 1024,
+        model: params.model || "runware:stable-diffusion-xl-1.0",
+        width: params.width || 1024,
+        height: params.height || 1024,
         numberResults: params.numberResults || 1,
         outputFormat: params.outputFormat || "WEBP",
-        steps: 4,
-        CFGScale: params.CFGScale || 1,
-        scheduler: params.scheduler || "FlowMatchEulerDiscreteScheduler",
-        strength: params.strength || 0.8,
+        steps: params.steps || 30,
+        CFGScale: params.CFGScale || 7,
+        scheduler: params.scheduler || "DPMSolverMultistepScheduler",
+        strength: params.strength || 0.75,
         lora: params.lora || [],
         ...params,
       }];
@@ -146,7 +145,9 @@ export class RunwareService {
         delete message[0].seed;
       }
 
-      if (message[0].model === "runware:100@1") {
+      if (message[0].model.includes("stable-diffusion")) {
+        message[0].promptWeighting = params.promptWeighting || "compel";
+      } else {
         delete message[0].promptWeighting;
       }
 

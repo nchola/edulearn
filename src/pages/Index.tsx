@@ -253,7 +253,11 @@ const Index = () => {
                   </Button>
                 </Link>
                 <Link to="/catalog">
-                  <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10">
+                  <Button
+                    size="lg"
+                    variant="outline"
+                    className="!bg-transparent border-white text-white hover:bg-white/10"
+                  >
                     Browse Courses
                   </Button>
                 </Link>
