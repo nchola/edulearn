@@ -1,73 +1,139 @@
-# Welcome to your Lovable project
+# EduLearn - Online Learning Platform
 
-## Project info
+EduLearn is a modern online learning platform that provides an interactive and engaging educational experience. Our platform offers a comprehensive catalog of high-quality courses across various disciplines, taught by industry experts. With features like interactive video lessons, structured curriculums, and a vibrant learning community, EduLearn helps students achieve their learning goals at their own pace. The platform also includes progress tracking, certification, and direct interaction with instructors through live sessions and discussion forums.
 
-**URL**: https://lovable.dev/projects/4e6012ef-6b76-4b16-a2e3-a7ed411ef566
+## 🚀 Fitur Utama
 
-## How can I edit this code?
+### 1. Katalog Kursus
+- Berbagai kategori kursus (Programming, Design, Business, Marketing, dll)
+- Filter dan pencarian kursus yang canggih
+- Informasi detail kursus (durasi, level, jumlah pelajaran)
+- Sistem rating dan review
 
-There are several ways of editing your application.
+### 2. Pembelajaran Interaktif
+- Video pembelajaran berkualitas tinggi
+- Kurikulum terstruktur dengan modul dan pelajaran
+- Latihan coding dan proyek praktis
+- Kuis dan penilaian
+- Sertifikat penyelesaian
 
-**Use Lovable**
+### 3. Manajemen Pembelajaran
+- Dashboard pembelajaran personal
+- Tracking progress kursus
+- Sistem penyelesaian kursus
+- Jadwal sesi live dengan instruktur
+- Tugas dan deadline
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/4e6012ef-6b76-4b16-a2e3-a7ed411ef566) and start prompting.
+### 4. Komunitas dan Interaksi
+- Forum diskusi untuk setiap kursus
+- Sesi tanya jawab langsung
+- Kolaborasi dengan sesama pelajar
+- Sistem rating dan review
+- Berbagi pengalaman belajar
 
-Changes made via Lovable will be committed automatically to this repo.
+### 5. Profil dan Personalisasi
+- Manajemen profil pengguna
+- Riwayat pembelajaran
+- Kursus yang sedang diambil
+- Rekomendasi kursus personal
+- Pengaturan notifikasi
 
-**Use your preferred IDE**
+### 6. Fitur Instruktur
+- Profil instruktur profesional
+- Manajemen kursus
+- Jadwal sesi live
+- Interaksi dengan siswa
+- Sistem penilaian dan feedback
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+## 🛠️ Teknologi yang Digunakan
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+- **Frontend:**
+  - React.js
+  - TypeScript
+  - Tailwind CSS
+  - Shadcn UI Components
+  - React Router
+  - Zustand (State Management)
 
-Follow these steps:
+- **Backend:**
+  - Node.js
+  - Express.js
+  - MongoDB
+  - JWT Authentication
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+- **Tools & Services:**
+  - Vite
+  - ESLint
+  - Prettier
+  - Git
+  - GitHub
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+## 📁 Struktur Proyek
 
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
+```
+edulearn/
+├── public/              # Static assets
+├── src/
+│   ├── components/      # Reusable UI components
+│   ├── pages/          # Page components
+│   ├── hooks/          # Custom React hooks
+│   ├── store/          # State management
+│   ├── types/          # TypeScript type definitions
+│   ├── utils/          # Utility functions
+│   ├── services/       # API services
+│   ├── styles/         # Global styles
+│   └── App.tsx         # Main application component
+├── .eslintrc.json      # ESLint configuration
+├── .prettierrc         # Prettier configuration
+├── index.html          # HTML template
+├── package.json        # Project dependencies
+├── tsconfig.json       # TypeScript configuration
+└── vite.config.ts      # Vite configuration
 ```
 
-**Edit a file directly in GitHub**
+## 🚀 Cara Memulai
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+1. **Clone Repository**
+   ```bash
+   git clone https://github.com/username/edulearn.git
+   cd edulearn
+   ```
 
-**Use GitHub Codespaces**
+2. **Install Dependencies**
+   ```bash
+   npm install
+   ```
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+3. **Run Development Server**
+   ```bash
+   npm run dev
+   ```
 
-## What technologies are used for this project?
+4. **Build for Production**
+   ```bash
+   npm run build
+   ```
 
-This project is built with:
+## 📝 Kontribusi
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+Kami menyambut kontribusi dari komunitas! Berikut cara untuk berkontribusi:
 
-## How can I deploy this project?
+1. Fork repository
+2. Buat branch fitur (`git checkout -b fitur/AmazingFeature`)
+3. Commit perubahan (`git commit -m 'Add some AmazingFeature'`)
+4. Push ke branch (`git push origin fitur/AmazingFeature`)
+5. Buka Pull Request
 
-Simply open [Lovable](https://lovable.dev/projects/4e6012ef-6b76-4b16-a2e3-a7ed411ef566) and click on Share -> Publish.
+## 📄 Lisensi
 
-## Can I connect a custom domain to my Lovable project?
+Proyek ini dilisensikan di bawah MIT License - lihat file [LICENSE](LICENSE) untuk detail lebih lanjut.
 
-Yes, you can!
+## 🤝 Kontak
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+- Email: support@edulearn.com
+- Website: [www.edulearn.com](https://www.edulearn.com)
+- Twitter: [@edulearn](https://twitter.com/edulearn)
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+---
+
+Dibuat dengan ❤️ oleh Tim EduLearn
